@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>10 hewan langka di muka bumi ini ️</title>
+
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: 'Poppins', sans-serif;
+        background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        text-align: center;
+        overflow: hidden;
+    }
+
+    .card {
+        background: white;
+        padding: 40px;
+        border-radius: 20px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        width: 90%;
+        max-width: 400px;
+        transition: 0.5s;
+    }
+
+    h1 {
+        margin-bottom: 20px;
+        color: #ff4b5c;
+    }
+
+    p {
+        font-size: 18px;
+        min-height: 60px;
+        transition: 0.5s;
+    }
+
+    button {
+        margin-top: 20px;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 25px;
+        background: #ff4b5c;
+        color: white;
+        font-size: 16px;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+
+    button:hover {
+        background: #ff1e3c;
+        transform: scale(1.05);
+    }
+
+    .heart {
+        position: absolute;
+        color: red;
+        animation: float 5s linear infinite;
+    }
+
+    @keyframes float {
+        0% { transform: translateY(100vh); opacity: 1; }
+        100% { transform: translateY(-10vh); opacity: 0; }
+    }
+</style>
+</head>
+
+<body>
+  <audio id="bgm" loop>
+    <source src="somebody.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+    const music = document.getElementById("bgm");
+    music.volume = 0.3; // Volume 30%
+
+    // Auto play saat pertama kali layar disentuh
+    document.body.addEventListener("click", function () {
+        music.play();
+    }, { once: true });
+</script>
+
+<div class="card">
+</i>
+    <h1>Hai kiara 😊</h1>
+    <p id="text">Aku mau bilang sesuatu...</p>
+    <button onclick="nextText()">Klik di sini</button>
+</div>
+
+<script>
+const messages = [
+    "Sebenarnya aku sudah lama ingin bilang ini...",
+    "Setiap hari ngobrol sama kamu itu bikin senyum sendiri.",
+    "Kamu itu beda dari yang lain.",
+    "Dan tanpa sadar...",
+    "Aku mulai nyaman sama kamu ❤️",
+    "Mungkin ini terdengar sederhana...",
+    "Tapi aku suka kamu 😊"
+];
+
+let index = 0;
+
+function nextText() {
+    if (index < messages.length) {
+        document.getElementById("text").innerHTML = messages[index];
+        index++;
+    } else {
+        document.querySelector("button").innerHTML = "💖";
+        createHeart();
+    }
+}
+
+function createHeart() {
+    const heart = document.createElement("div");
+    heart.classList.add("heart");
+    heart.innerHTML = "❤️";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.fontSize = Math.random() * 20 + 20 + "px";
+    document.body.appendChild(heart);
+
+    setTimeout(() => {
+        heart.remove();
+    }, 5000);
+}
+</script>
+
+</body>
+</html>
